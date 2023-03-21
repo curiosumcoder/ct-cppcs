@@ -2,11 +2,11 @@
 Material relacionado con el curso de Fundamentos en C++ y C# impartido en UCenfotec (modalidad virtual) en Marzo 2023.
 
 ### Requerimientos de software
-1.	Requisitos mínimos del hardware que ocupamos. 
+1.	Requisitos mínimos del hardware que ocupamos. <br/>
 	https://docs.microsoft.com/en-us/visualstudio/releases/2022/system-requirements
 	
-2.	Última versión del Microsoft .NET Core SDK
-	https://dotnet.microsoft.com/en-us/download, el de 64bits aquí, 
+2.	Última versión del Microsoft .NET Core SDK<br/>
+	https://dotnet.microsoft.com/en-us/download, el de 64bits aquí,<br/> 
 	https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-7.0.202-windows-x64-installer
 	
 	Utilizar el Windows Installer de acuerdo con la versión de Windows que se esté utilizando.
@@ -27,15 +27,15 @@ Material relacionado con el curso de Fundamentos en C++ y C# impartido en UCenfo
 	dotnet build
 	dotnet run
 
-4.	Microsoft Visual Studio Code 
-	https://code.visualstudio.com/
+4.	Microsoft Visual Studio Code<br/> 
+	https://code.visualstudio.com/<br/>
 	Instalar o actualizar a la última versión.
 	
-6.	Microsoft Visual Studio 2022 (edición Community o superior) 
-	https://visualstudio.microsoft.com/downloads/
+6.	Microsoft Visual Studio 2022 (edición Community o superior)<br/> 
+	https://visualstudio.microsoft.com/downloads/<br/>
 	https://docs.microsoft.com/en-us/visualstudio/install/install-visual-studio?view=vs-2022#install-workloads
 	
-	Aquí se documenta como obtener los instaladores para la instalación local, 
+	Aquí se documenta como obtener los instaladores para la instalación local,<br/> 
 	https://docs.microsoft.com/en-us/visualstudio/install/create-a-network-installation-of-visual-studio?view=vs-2022, 
 	esto baja todos los “workloads” pero al momento de instalar no se deben de instalar todos.
 	
