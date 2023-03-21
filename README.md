@@ -31,10 +31,7 @@ Material relacionado con el curso de Fundamentos en C++ y C# impartido en UCenfo
 	https://code.visualstudio.com/<br/>
 	Instalar o actualizar a la última versión.
 	
-4.	Instalar la extensión *C/C++ Extension Pack* para Visaual Studio Code.<br/>
-	https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack
-	
-5.	Microsoft Visual Studio 2022 (edición Community o superior)<br/> 
+4.	Microsoft Visual Studio 2022 (edición Community o superior)<br/> 
 	https://visualstudio.microsoft.com/downloads/<br/>
 	https://docs.microsoft.com/en-us/visualstudio/install/install-visual-studio?view=vs-2022#install-workloads
 	
@@ -56,6 +53,9 @@ Material relacionado con el curso de Fundamentos en C++ y C# impartido en UCenfo
 	aplicarlo y esperar que finalice.
  
 	Se puede confirmar el resultado con el “Acerca de” de Visual Studio 2022. Al momento de crear este documento la versión es 17.5.2.
+	
+5.	Instalar la extensión *C/C++ Extension Pack* para Visaual Studio Code.<br/>
+	https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack
 	
 De ser posible efectuar la instalación de las versiones del software con el idioma inglés, para unificar con la 
 configuración utilizada por el profesor.
