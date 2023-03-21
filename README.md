@@ -43,16 +43,16 @@ Material relacionado con el curso de Fundamentos en C++ y C# impartido en UCenfo
 	para efectuar la actualización.
 
 	Se deben instalar al menos los “workloads”: 
-	- Web & Cloud 
-		+ ASP.NET and web development
-		+ Data storage and processing
+	- Desktop & Mobile 
+		+ .NET desktop development
+		+ Desktop development with C++
 		
 	En caso de contar con una instalación del Visual Studio 2022, proceder con la actualización a la última versión, 
 	y confirmar que se tengan instalados los “workloads” señalados en el punto anterior. Esto se hace ejecutando el 
 	Visual Studio Installer, y aplicar en el equipo la actualización cuando aparece el botón “Update”, es solo de 
 	aplicarlo y esperar que finalice.
  
-	Se puede confirmar el resultado con el “Acerca de” de Visual Studio 2022.
+	Se puede confirmar el resultado con el “Acerca de” de Visual Studio 2022. Al momento de crear este documento la versión es 17.5.2.
 	
 De ser posible efectuar la instalación de las versiones del software con el idioma inglés, para unificar con la 
 configuración utilizada por el profesor.
