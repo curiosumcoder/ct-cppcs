@@ -27,11 +27,14 @@ Material relacionado con el curso de Fundamentos en C++ y C# impartido en UCenfo
 	dotnet build
 	dotnet run
 
-4.	Microsoft Visual Studio Code<br/> 
+3.	Microsoft Visual Studio Code<br/> 
 	https://code.visualstudio.com/<br/>
 	Instalar o actualizar a la última versión.
 	
-6.	Microsoft Visual Studio 2022 (edición Community o superior)<br/> 
+4.	Instalar la extensión *C/C++ Extension Pack* para Visaual Studio Code.<br/>
+	https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack
+	
+5.	Microsoft Visual Studio 2022 (edición Community o superior)<br/> 
 	https://visualstudio.microsoft.com/downloads/<br/>
 	https://docs.microsoft.com/en-us/visualstudio/install/install-visual-studio?view=vs-2022#install-workloads
 	
