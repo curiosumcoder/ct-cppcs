@@ -17,8 +17,8 @@ Material relacionado con el curso de Fundamentos en C++ y C# impartido en UCenfo
 	
 	Ejecutar desde la línea de comandos: 
 	
-	mkdir t1
-	cd t1
+	mkdir t1<br/>
+	cd t1<br/>
 	dotnet new console 
 
 	En este paso puede aparecer un mensaje que señala que se están descargando los paquetes iniciales de .NET Core. 
