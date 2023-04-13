@@ -2,12 +2,23 @@
 #include <string>
 #include <format>
 #include "Calc.h"
+#include <string>
 
 using namespace std;
 using namespace Calc;
 
 int main()
 {
+
+	std::string s{"abc"};
+	for (auto c : s)
+	{
+		cout << c;
+	}
+
+	s = s + "def";
+	cout << s.append("def");
+	
 	auto store{ 0.0f };
 
 	while (true)
