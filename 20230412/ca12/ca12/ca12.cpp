@@ -1,10 +1,10 @@
 #include <iostream>
 #include <string>
 #include <format>
+#include "Calc.h"
 
 using namespace std;
-
-float add(const float& a, float& b, const float& c = 0);
+using namespace Calc;
 
 int main()
 {
@@ -32,6 +32,7 @@ int main()
 			switch (op)
 			{
 			case '+':
+				//store = Calc::add(num, store, 3);
 				store = add(num, store, 3);
 				break;
 			default:
@@ -43,12 +44,4 @@ int main()
 	}
 
 	cout << "READY!\n";
-}
-
-// references
-float add(const float& a, float& b, const float& c)
-{
-	//a = 100;
-
-	return a + b + c;
 }
