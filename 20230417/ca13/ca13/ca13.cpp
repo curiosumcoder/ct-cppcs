@@ -15,6 +15,9 @@ void demo(const int& n)
 
 	//n = 777;
 
+	auto& m = n;
+	//m = 111;
+
 	cout << "demo, n: " << n;
 }
 
@@ -63,7 +66,7 @@ int main()
 	auto names0 = { "Carlos"s,"Alberto"s };
 
 	typedef std::vector<string> StrVector; // C-style
-	StrVector names2{ "Carlos"s,"Alberto"s };
+	StrVector names2{ "Carlos","Alberto" };
 
 	using StringVector = std::vector<string>; // C++ style
 	StringVector names3{ "Carlos"s,"Alberto"s };
