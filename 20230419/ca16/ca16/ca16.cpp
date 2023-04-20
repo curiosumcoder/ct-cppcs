@@ -8,6 +8,12 @@
 
 using namespace std;
 
+string ltrim(const string& s)
+{
+	size_t start = s.find_first_not_of(" \n\r\t\f\v");
+	return (start == string::npos) ? "" : s.substr(start);
+}
+
 int main()
 {
 	SetConsoleOutputCP(1252);
@@ -49,6 +55,7 @@ int main()
 
 				string id = line.substr(0, line.find(','));
 				string name = line.substr(line.find(',') + 1);
+				name = ltrim(name);
 				cout << format("\n{} - {}\n", id, name);
 
 				// Linear/Sequential containers
@@ -65,12 +72,19 @@ int main()
 			for (auto& p : productsMap)
 			{
 				cout << format("\n{} - {}\n", p.first, p.second);
-			}
+			}	
 		}
 		else
 		{
 			throw runtime_error("\nError when opening file!\n");
 		}
+
+		// basic_ofstream<char>
+		// "C:\\demo.txt"
+		// R"(C:\demo.txt)"
+		ofstream demoFile{ "demo.txt", ios::out | ios::app };
+		demoFile << "Hello World"s << endl;
+		demoFile.close();
 	}
 	catch (const exception& ex)
 	{
