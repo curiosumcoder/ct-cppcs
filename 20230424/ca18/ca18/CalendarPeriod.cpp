@@ -27,10 +27,44 @@ namespace CPPCompany::Billing {
 
 	CalendarPeriod::~CalendarPeriod()
 	{
-		cout << "Destructor Facturacion::Periodo";
+		cout << "Destructor CPPCompany::Billing::CalendarPeriod";
 	}
 
 	string CalendarPeriod::ToString() {
 		return format("{:d}/{:d}", static_cast<short>(month), year);
+	}
+
+	// DRY
+	void CalendarPeriod::Next() {
+		short nmonth = static_cast<short>(month);
+		year = nmonth == 12 ? ++year : year;
+		month = nmonth == 12 ? Months::January : static_cast<Months>(++nmonth);
+	}
+
+	void CalendarPeriod::Previous() {
+		short nmonth = static_cast<short>(month);
+		year = nmonth == 1 ? --year : year;
+		month = nmonth == 1 ? Months::December : static_cast<Months>(--nmonth);
+	}
+
+	void CalendarPeriod::SetYear(int pyear) {
+		year = pyear;
+	}
+
+	void CalendarPeriod::SetMonth(Months pmonth)
+	{
+		month = pmonth;
+	}
+
+	int CalendarPeriod::GetYear() {
+		return year;
+	}
+
+	Months CalendarPeriod::GetMonth() {
+		return month;
+	}
+
+	short CalendarPeriod::GetMonthAsShort() {
+		return static_cast<short>(month);
 	}
 }

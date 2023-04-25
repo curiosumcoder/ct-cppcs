@@ -2,6 +2,8 @@
 
 #include <string>
 
+using namespace std;
+
 // public -> Pascal Case
 // private -> caml Case
 namespace CPPCompany::Billing {
@@ -23,6 +25,14 @@ namespace CPPCompany::Billing {
 		CalendarPeriod(int pYear, Months pMonth);
 		~CalendarPeriod();
 		string ToString();
+		void Next();
+		void Previous();
+
+		void SetYear(int year);
+		int GetYear();
+		void SetMonth(Months month);
+		Months GetMonth();
+		short GetMonthAsShort();
 	};
 }
 
