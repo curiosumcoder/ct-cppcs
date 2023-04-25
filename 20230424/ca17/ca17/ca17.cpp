@@ -14,7 +14,15 @@ string ltrim(const string& s)
 	return (start == string::npos) ? "" : s.substr(start);
 }
 
+// Plain-Old-Data Classes (POD)
+// Class
 struct Product {
+	int Id;
+	string Name;
+	float Price;
+};
+
+class ProductC {
 	int Id;
 	string Name;
 	float Price;
@@ -36,6 +44,7 @@ int main()
 			{
 
 				stringstream ss{ line };
+				//array<string> parts0{"","",""};
 				array<string, 3> parts; // Para ver al array, más práctico el vector
 
 				short i{ 0 };
@@ -53,8 +62,8 @@ int main()
 				string name = parts[1];
 				float price = stof(parts[2]);
 
-				products.push_back({ id, name, price });
-				//products.push_back(Product{ id, name, price });
+				//products.push_back({ id, name, price });
+				products.push_back(Product{ id, name, price });
 			}
 			productsFile.close();
 
@@ -64,9 +73,10 @@ int main()
 
 				for (auto& p : products)
 				{
-					cout << format("\n{:<4d} | {:<40} | {:.2f}", p.Id, p.Name, p.Price);
+					cout << format("\n{:<4d} | {:<40} | {:.2f}", 
+						p.Id, p.Name, p.Price);
 				}
-			}
+			}					
 
 			ofstream productsFileOut{ fileName };
 
@@ -74,7 +84,8 @@ int main()
 			{
 				for (auto& p : products)
 				{
-					productsFileOut << format("{:d}, {:s}, {:.2f}\n", p.Id, p.Name, p.Price + 1);
+					productsFileOut << format("{:d}, {:s}, {:.2f}\n", 
+						p.Id, p.Name, p.Price + 1);
 				}
 				productsFileOut.close();
 			}

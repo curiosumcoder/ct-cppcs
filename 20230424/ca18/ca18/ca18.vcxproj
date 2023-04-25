@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{cf6c05fe-4eb8-42f5-9f39-24d27cbb6a68}</ProjectGuid>
-    <RootNamespace>ca17</RootNamespace>
+    <ProjectGuid>{38d02476-d8d2-4eb2-8819-1f09cbf201d5}</ProjectGuid>
+    <RootNamespace>ca18</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -128,10 +128,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ca17.cpp" />
+    <ClCompile Include="ca18.cpp" />
+    <ClCompile Include="CalendarPeriod.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="products2.csv" />
+    <ClInclude Include="CalendarPeriod.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
