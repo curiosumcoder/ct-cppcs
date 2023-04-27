@@ -25,14 +25,31 @@ public:
 	}
 };
 
+void arrays();
+void vectors();
+void deques();
+void lists();
+void stacks();
+void bitsets_unions();
+void sets();
+
 int main()
 {
-
+	//arrays();
+	//vectors();
+	//deques();
+	//lists();
+	//stacks();
+	//bitsets_unions();
+	//sets();
 
 	cout << "\nREADY!\n";
 }
 
 void sets() {
+	//Product p1, p2;
+	//p1 < p2;
+
 	set<int> s1{ 1,2,3,4,5 };
 
 	s1.insert(6);
@@ -57,10 +74,15 @@ void sets() {
 	s2.insert({ 1,"Coco" });
 	s2.insert({ 2,"Banano" });
 	s2.insert({ 3,"Cas" });
+	s2.insert({ 3,"Cas" });
 
-	//s2.erase({ 1,"Coco" });
+	s2.erase({ 1,"Coco" });
 
-	auto pend = find_if(s2.begin(), s2.end(), [](auto& p) { return p.Name.find("a") != string::npos; });
+	auto pend = find_if(
+		s2.begin(), s2.end(), 
+		[](auto& p) { 
+			return p.Name.find("a") != string::npos; });
+
 	if (pend != s2.end())
 	{
 		cout << (*pend).Name;
@@ -94,7 +116,10 @@ void bitsets_unions() {
 	bitset<8> bs1{ 0b10000001 };
 	bitset<8> bs2{ "10000101" };
 
-	cout << format("\n{}, {}, test:{}", bs1.to_string(), bs2.to_string(), bs1.test(1));
+	cout << format("\n{}, {}, test:{}", 
+		bs1.to_string(), 
+		bs2.to_string(), 
+		bs1.test(1));
 
 	union MyNumber
 	{
@@ -185,17 +210,19 @@ void stacks() {
 void lists() {
 	list<int> l1{ 1,2,3,4,5 };
 
-	l1.remove(3);
-	l1.remove_if([](auto& n) { return n % 2 == 0; });
+	//l1.remove(3);
+	//l1.remove_if([](auto& n) { return n % 2 == 0; });
 
 	l1.assign({ 1,1,2,2,3,4,5,5,-1 });
-	//l1.unique();
+	l1.unique();
 
-	//list<int> l2{ 6,7,8,9 };
-	//l1.merge(l2);
+	list<int> l2{ 6,7,8,9 };
 
 	l1.sort();
-	//l1.sort([](auto& a, auto& b) { return a > b; });
+
+	l1.merge(l2);
+		
+	l1.sort([](auto& a, auto& b) { return a > b; });
 
 	l1.reverse();
 
@@ -247,17 +274,19 @@ void vectors()
 	//v1.assign({ 6, 7, 8, 9 });
 
 	auto pend = find(v1.begin(), v1.end(), 3);
-	//pend = v1.insert(pend, 9);
+	
+	pend = v1.insert(pend, 9);
+
 	if (pend != v1.end())
 	{
 		pend = v1.emplace(pend, 7);
 	}
 
-	v1.emplace_back(8);
+	v1.emplace_back(1);
 	cout << format("\ncapacity: {}, size: {}", v1.capacity(), v1.size());
 
-	//v1.at(3);
-	//v1[3];
+	v1.at(3);
+	v1[3];
 
 	//swap(v1.at(2),v1.at(3));
 
@@ -274,17 +303,27 @@ void vectors()
 }
 
 void arrays() {
+	// Operators: +, -, =, +=
+	// + -->> sum(a,b)
+	// Operator Overloading
+	auto hw{ "Hello "s  };
+	hw = hw + "World!"s;
+	hw.append("DEMO");
+
+	// *, &
 
 	// Pointers primer
 	int a{ 55 };
 	int* pa = &a; // & address operator. An address, pointer to "a"
 	int vpa = *pa; // * dereference operator.  Value of "a" via pointer
 
-	cout << format("\na value: {:d}, a address: {:p}, a value via pointer: {:d}", a, static_cast<void*>(pa), vpa);
+	cout << format("\na value: {:d}, a address: {:p}, a value via pointer: {:d}", 
+		a, static_cast<void*>(pa), vpa);
 	auto size = sizeof(a);
 	++pa;
 	vpa = *pa; // :-(
-	cout << format("\na value: {:d}, a address: {:p}, a value via pointer: {:d}", a, static_cast<void*>(pa), vpa);
+	cout << format("\na value: {:d}, a address: {:p}, a value via pointer: {:d}", 
+		a, static_cast<void*>(pa), vpa);
 
 	// CRUD
 	cout << "\narray";
@@ -322,26 +361,36 @@ void arrays() {
 
 	cout << format("\nread: {}", a1[2]);
 	cout << format("\nread: {}", a1.at(2));
-	cout << format("\nread: {}", get<2>(a1));
+	cout << format("\nread: {}", get<2>(a1)); // !!
 
 	auto c1e = a1.empty();
 	auto c1s = a1.size();
 	auto c1f = a1.front();
 	auto c1b = a1.back();
 
-	//auto pend = remove(c1.begin(), c1.end(), 4);
-	//for_each(c1.begin(), pend, [](auto& n) { cout << format("\n{}", n); });
+	//auto pend = remove(a1.begin(), a1.end(), 4);
+	//for_each(a1.begin(), pend, 
+	//	[](auto& n) { cout << format("\n{}", n); 
+	//	});
+
+	//for (auto& n : a1)
+	//{
+	//	cout << format("\n{}", n);
+	//}
 
 	cout << "\n----------------------------------------------\n";
 
-	auto pend = remove_if(a1.begin(), a1.end(), [](auto& n) {return (n % 2) == 0; });
-	for_each(a1.begin(), pend, [](auto& n) { cout << format("\n{}", n); });
+	//auto pend = remove_if(a1.begin(), a1.end(), 
+	//	[](auto& n) {return (n % 2) == 0; });
+	//for_each(a1.begin(), pend, 
+	//	[](auto& n) { cout << format("\n{}", n); });
 
 	cout << "\n----------------------------------------------\n";
+
+	swap(a1.at(2), a1.at(3));
+
 	for (auto& e : a1)
 	{
 		cout << format("\n{}", e);
 	}
-
-	//swap(a1.at(2), a1.at(3));
 }
