@@ -4,7 +4,6 @@
 #include <random>
 #include <vector>
 #include <memory>
-#include "session12.h"
 
 using namespace std;
 
@@ -83,6 +82,7 @@ void PointerPrimer()
 
 void DynamicStorage()
 {
+	// Automatic Storage Duration
 	// Null Pointer
 	int a{ 77 };
 
@@ -97,34 +97,43 @@ void DynamicStorage()
 
 	// Dynamic Storage Duration
 	int* pa2{ new int{ 77 } };
-	auto pa3{ new int };
+	auto pa3{ new int{} };
 
-	cout << format("\na value: {:d}, a2 value: {:d}, a3 value: {:d}\n", *pa, *pa2, *pa3);
+	cout << format(
+		"\na value: {:d}, a2 value: {:d}, a3 value: {:d}\n", 
+		*pa, *pa2, *pa3);
+	delete pa2;
+	delete pa3;
 
+	// Memory Leck
 	while (true)
 	{
 		//delay(100);
 		pa3 = new int{ randomInt(1,100) };
 		cout << "Processing ints ...\n";
-		//delete pa3;
+		delete pa3;
 	}
 }
 
 
 void DynamicStorate2()
 {
-	// Automatic Storage Duration
-	Product p0{ 1,"Chai"s, 100.0 };
-	// Member access . (dot)
-	//cout << format("\nId: {:d}, Name: {:s}, Price: {:.2f}\n", p0.Id, p0.Name, p0.Price);
+	//// Automatic Storage Duration
+	//Product p0{ 1,"Chai"s, 100.0 };
+	//// Member access . (dot)
+	//cout << format("\nId: {:d}, Name: {:s}, Price: {:.2f}\n", 
+	//	p0.Id, p0.Name, p0.Price);
 
 	// Dynamic Storage Duration
 	Product* p1{ new Product{ 2,"Melon", 200.0 } };
 	// Derefence, *
-	//cout << format("\nId: {:d}, Name: {:s}, Price: {:.2f}\n", (*p1).Id, (*p1).Name, (*p1).Price);
+	//cout << format("\nId: {:d}, Name: {:s}, Price: {:.2f}\n",
+	//	(*p1).Id, (*p1).Name, (*p1).Price);
+
 	// Member dereference, ->
-	//cout << format("\nId: {:d}, Name: {:s}, Price: {:.2f}\n", p1->Id, p1->Name, p1->Price);
-	//delete p1; // :-(
+	//cout << format("\nId: {:d}, Name: {:s}, Price: {:.2f}\n", 
+	//	p1->Id, p1->Name, p1->Price);
+	//delete p1; // :-)
 
 	vector<Product*> products{ p1 };
 	auto p2{ new Product{ 3,"Orange", 300.0 } };
@@ -132,7 +141,8 @@ void DynamicStorate2()
 
 	for (auto p : products)
 	{
-		cout << format("\nId: {:d}, Name {:s}, Price: {:.2f}\n", p->Id, p->Name, p->Price);
+		cout << format("\nId: {:d}, Name {:s}, Price: {:.2f}\n", 
+			p->Id, p->Name, p->Price);
 		delete p;
 	}
 }
@@ -147,39 +157,70 @@ void SmartPointers()
 
 	//unique_ptr<Product> p1{ new Product{ 1,"Chai"s, 100.0 } };
 	auto p1{ make_unique<Product>(1,"Chai"s, 100.0f) }; // Recommended way
-	cout << format("\nId: {:d}, Name: {:s}, Price: {:.2f}\n", p1->Id, p1->Name, p1->Price);
+	cout << format("\nId: {:d}, Name: {:s}, Price: {:.2f}\n", 
+		p1->Id, p1->Name, p1->Price);
 
 	// Unique pointers cannot be copied
 	unique_ptr<Product> p1c{};
-	//p1c = p1;
+	////p1c = p1;
 	//p1c = move(p1);
 
-	if (p1c)
-	{
-		cout << format("\nId: {:d}, Name: {:s}, Price: {:.2f}\n", p1c->Id, p1c->Name, p1c->Price);
-		//p1c.reset();
-	}
+	//if (p1c)
+	//{
+	//	cout << format("\nId: {:d}, Name: {:s}, Price: {:.2f}\n", p1c->Id, p1c->Name, p1c->Price);
+	//	//p1c.reset();
+	//}
 
 	// Shared pointers (Smart Pointer)
 	// Enable multiple smart pointers to share ownership of a dynamically allocated object
 	//shared_ptr<Product> p2{ new Product{ 2,"Melon", 200.0 } };
 	auto p2{ make_shared<Product>(2,"Melon", 200.0f) }; // Recommended way
-	cout << format("\nId: {:d}, Name: {:s}, Price: {:.2f}\n", p2->Id, p2->Name, p2->Price);
+	cout << format("\nId: {:d}, Name: {:s}, Price: {:.2f}\n", 
+		p2->Id, p2->Name, p2->Price);
 
 	shared_ptr<Product> p2c{};
 	p2c = p2;
 	p2c->Price = 255.0;
 
-	cout << format("\nId: {:d}, Name: {:s}, Price: {:.2f}\n", p2c->Id, p2c->Name, p2c->Price);
+	cout << format("\nId: {:d}, Name: {:s}, Price: {:.2f}\n", 
+		p2c->Id, p2c->Name, p2c->Price);
 
 	// Check the reference count
-	//p2.reset();
-	//p2c.reset();
+	p2.reset();
+	p2c.reset();
 	cout << format("\nReference count: {}\n", p2c.use_count());
 }
 
+struct Item {
+	int n;
+	Item* next;
+};
+
 int main()
 {
+	// RAW list implemented using raw pointers
+	Item* first{ new Item{1, nullptr} };
+	first->next = new Item{ 2, nullptr };
+
+	auto current{ first };
+
+	while (current != nullptr)
+	{
+		cout << current->n << endl;
+		current = current->next;
+	}
+
+
+
+
+	//PointerPrimer();
+	//DynamicStorage();
+	//DynamicStorate2();
+	//SmartPointers();
+
+	vector<Product> v1;
+
+
 
 	cout << "READY!\n";
 }
