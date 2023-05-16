@@ -8,5 +8,9 @@ namespace wfa1
 {
     internal class Juego
     {
+        public void Funcion1()
+        { 
+
+        }
     }
 }

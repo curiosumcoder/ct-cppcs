@@ -53,6 +53,8 @@ namespace wfa1
         {
             var j = new Juego();
             j.Funcion1();
+
+            button1.Text = "X";
         }
     }
 }
