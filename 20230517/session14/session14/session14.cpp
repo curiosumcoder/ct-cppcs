@@ -41,22 +41,23 @@ void printNumbersMutex(int start, int end) {
 	auto ti{ threadId() };
 
 	for (int i = start; i <= end; i++) {
-		//m.lock();
+		m.lock();
 		cout << format("Task: {:s}, value: {:d}, inventory: {:d}\n", ti, i, inventory);
 		inventory--;
 		delay(1000);
-		//m.unlock();
+		m.unlock();
 	}
 }
 
-// Atomic
+// Atomics
 atomic_int inventoryA{ 20 };
 
 void printNumbersAtomic(int start, int end) {
 	auto ti{ threadId() };
 
 	for (int i = start; i <= end; i++) {
-		cout << format("Task: {:s}, value: {:d}, inventory: {:d}\n", ti, i, inventoryA.load());		
+		cout << format("Task: {:s}, value: {:d}, inventory: {:d}\n", 
+			ti, i, inventoryA.load());		
 		delay(1000);
 		inventoryA--;
 	}
@@ -64,6 +65,14 @@ void printNumbersAtomic(int start, int end) {
 
 int main()
 {
+	// * Multithreading
+	// Process (OS)
+	// - CPU
+	// - Memory
+	// - Threads (hilos)
+	//		- *Multi Task (thread)
+	//		- Concurrency
+	//		- Parallels
 
 	auto now0 = high_resolution_clock::now();
 	// Example 1
@@ -71,8 +80,8 @@ int main()
 	//printNumbers(11, 20);
 
 	// Example 2
-	//thread t1(printNumbers, 1, 10);
-	//thread t2(printNumbers, 11, 20);
+	//thread t1{ printNumbers, 1, 10 };
+	//thread t2{ printNumbers, 11, 20 };
 	//t1.join();
 	//t2.join();
 
@@ -97,7 +106,8 @@ int main()
 	// Example 5
 	// Atomics
 	// Lock - concurrent programming without explicit locks. CPUs support.
-	//cout << format("\ninventoryA is lock free: {}\n", inventoryA.is_lock_free());
+	//cout << format("\ninventoryA is lock free: {}\n", 
+	//	inventoryA.is_lock_free());
 	//cout << format("\ninventoryA: {:d}\n", inventoryA.load());
 	//future<void> result1a = async(launch::async, printNumbersAtomic, 1, 10);
 	//future<void> result2a = async(launch::async, printNumbersAtomic, 11, 20);
